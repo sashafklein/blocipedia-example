@@ -8,6 +8,7 @@
 - Bundle install (delete or comment HAML line first, if you'd prefer ERB).
 - Edit config/database.yml (replace app and user names with your own).
 - Create the relevant databases (`rake db:create`).
+- Update `.git/config`, so that the `url` line for your Github `remote` points to the right URL, ie: `url = https://github.com/username/my-blocipedia-app`. (You might have to directly open the hidden `.git` folder with Sublime).
 - Replace this Readme with a description of your app and its hosted location.
 
 
