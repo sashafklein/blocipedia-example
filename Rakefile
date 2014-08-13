@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-BlocStarter::Application.load_tasks
+BlocipediaStarter::Application.load_tasks
