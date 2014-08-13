@@ -4,7 +4,7 @@
 ### To Get Started
 
 - Clone the repo to your local environment (or Vagrant).
-- Do a Find and Replace for `BlocipediaStarter` throughout the repo. Replace it with your (camel-cased) app name.
+- Do a Find and Replace for `BlocipediaExample` throughout the repo. Replace it with your (camel-cased) app name.
 - Bundle install (delete or comment HAML line first, if you'd prefer ERB).
 - Edit config/database.yml (replace app and user names with your own).
 - Create the relevant databases (`rake db:create`).

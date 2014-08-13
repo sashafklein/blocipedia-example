@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: blocipedia-starter_development
+  database: blocipedia-example_development
   pool: 5
   username: sashafklein
   password:
@@ -9,7 +9,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: blocipedia-starter_test
+  database: blocipedia-example_test
   pool: 5
   username: sashafklein
   password:
