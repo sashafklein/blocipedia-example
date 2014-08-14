@@ -1,5 +1,6 @@
 if Rails.env.development?
   ActionMailer::Base.delivery_method = :smtp
+  raise if ENV['SENDGRID_USERNAME'].nil?
   ActionMailer::Base.smtp_settings = {
     address:        'smtp.sendgrid.net',
     port:           '587',
