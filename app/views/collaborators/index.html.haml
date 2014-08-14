@@ -1,0 +1,9 @@
+%h2 Collaborators
+%ul
+  - @collabs.each do |user|
+    %li= link_to "Remove #{user.email} as collaborator", wiki_user_collaboration_path(@wiki, user), method: :delete
+
+%h2 Non-Collaborating Users
+%ul
+  - @non_collabs.each do |user|
+    %li= link_to "Add #{user.email} as collaborator", wiki_user_collaborations_path(@wiki, user)
