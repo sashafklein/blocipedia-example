@@ -40,7 +40,7 @@ class WikisController < ApplicationController
     else
       flash[:error] = "Wiki destruction failed."
     end
-    redirect_to user_wikis_path(current_user)
+    redirect_to owned_wikis_user_path(current_user)
   end
 
   private

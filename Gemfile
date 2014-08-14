@@ -19,6 +19,7 @@ gem 'devise'
 gem 'figaro'
 gem 'friendly_id', '~> 5.0.0'
 gem 'redcarpet'
+gem 'stripe'
 
 group :doc do
   gem 'sdoc', require: false

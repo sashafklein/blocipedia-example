@@ -6,4 +6,4 @@
 = link_to "Login", new_user_session_path
 = link_to "Register", new_user_registration_path
 - if current_user
-  = link_to "Your Wikis Index", user_wikis_path(current_user)
+  = link_to "Your Wikis Index", owned_wikis_user_path(current_user)
