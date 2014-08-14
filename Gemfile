@@ -14,8 +14,11 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+gem 'simple_form'
 gem 'devise'
 gem 'figaro'
+gem 'friendly_id', '~> 5.0.0'
+gem 'redcarpet'
 
 group :doc do
   gem 'sdoc', require: false

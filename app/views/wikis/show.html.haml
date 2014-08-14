@@ -1,0 +1,5 @@
+%h1= @wiki.title
+%p= raw @wiki.markdown_body
+
+- if current_user.owns(@wiki)
+  = link_to "Edit", edit_wiki_path(@wiki)
