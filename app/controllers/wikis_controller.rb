@@ -1,7 +1,10 @@
 class WikisController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :load_wiki, only: [:show, :edit, :update, :destroy]
-  
+  before_action :block_non_owner, only: [:edit, :update, :destroy]
+  before_action :block_private, only: [:show]
+
   def new
     @wiki = Wiki.new
   end
@@ -50,6 +53,20 @@ class WikisController < ApplicationController
   end
 
   def wiki_params
-    params.require(:wiki).permit(:title, :body)
+    params.require(:wiki).permit(:title, :body, :private)
+  end
+
+  def block_non_owner
+    unless @wiki.owner == current_user
+      flash[:error] = "You don't have permission to do that."
+      redirect_to root_path
+    end
+  end
+
+  def block_private
+    if @wiki.private? && !current_user.paid?
+      flash[:error] = "You need to pay to do that!"
+      redirect_to new_charge_path
+    end
   end
 end

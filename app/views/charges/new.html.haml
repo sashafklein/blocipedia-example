@@ -1,5 +1,7 @@
+%h2 Upgrade your Account
+
 = form_tag charges_path do
   = hidden_field_tag :amount, @stripe_btn_data[:amount]
 
-  %h4 Click the button!
+  %h4 Charge me $10 for a paid account!
   %script{ class: 'stripe-button', src: "https://checkout.stripe.com/checkout.js", data: @stripe_btn_data }

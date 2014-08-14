@@ -1,4 +1,6 @@
 = simple_form_for @wiki do |f|
   = f.input :title
   = f.input :body, as: :text
+  - if current_user.paid?
+    = f.input :public, as: :boolean
   = f.button :submit
