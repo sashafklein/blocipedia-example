@@ -12,27 +12,13 @@
  *= require_tree .
  */
 
-.header {
-  height: 100px;
-  font-size: 120%;
-  padding: 10px;
-  
-  li {
-    list-style: none;
-    display: inline;
-    h4 {
-      display: inline;
-    }
-  }
+@import 'bootstrap';
 
-  .left {
-    position: absolute;
-    text-align: left;
+ul.nav.nav-tabs{
+  border-bottom: 1px solid #ccc;
+  li, a, p {
+    display: inline-block;
+    border: none
   }
-
-  .right {
-    position: absolute;
-    text-align: right;
-    right: 25px;
-  }
+  a, p { padding: 10px 15px; }
 }

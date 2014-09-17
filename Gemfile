@@ -33,6 +33,7 @@ end
 ## Our additions below
 
 gem 'sass-rails', '~> 4.0.0' # SCSS for styling
+gem 'bootstrap-sass', '~> 3.1.1'
 
 group :development do
   gem 'better_errors'

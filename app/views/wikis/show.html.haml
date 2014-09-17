@@ -1,5 +1,8 @@
 %h1= @wiki.title
 %p= raw @wiki.markdown_body
 
-- if current_user.owns(@wiki)
+- if current_user.can_edit?(@wiki)
   = link_to "Edit", edit_wiki_path(@wiki)
+
+- if current_user.owns?(@wiki)
+  = link_to "Add Collaborators", wiki_collaborators_path(@wiki)

@@ -1,0 +1,22 @@
+describe "RSpec variable scoping" do
+describe "outer" do
+  before{ @outer_var = true }
+  describe "inner1" do
+    before{ @inner_var = true }
+
+    it "has access to second, but not third" do
+      expect(@outer_var).to eq true
+      expect(@inner_var).to eq true
+      expect(@inner_var2).to eq nil
+    end
+  end
+
+  describe "inner2" do
+    before { @inner_var2 = true }
+    it "has access to third, but not second" do
+      expect(@outer_var).to eq true
+      expect(@inner_var).to eq nil
+      expect(@inner_var2).to eq true
+    end
+  end
+end

@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 describe Collaboration do 
+
+  include Devise::TestHelpers
+  
   describe "creation" do
 
     before do
@@ -14,15 +17,14 @@ describe Collaboration do
       expect(@wiki.reload.collaborators).to eq [@user]
     end
 
-    # BONUS
-    # it "can be created indirectly" do
-    #   expect(@wiki.collaborators).to eq []
-    #   expect(Collaboration.count).to eq 0
+    it "can be created indirectly" do
+      expect(@wiki.collaborators).to eq []
+      expect(Collaboration.count).to eq 0
 
-    #   @wiki.collaborators << @user
-    #   expect(@wiki.collaborators).to eq [@user]
-    #   expect(Collaboration.first.collaborator).to eq @user
-    #   expect(Collaboration.first.wiki).to eq @wiki
-    # end
+      @wiki.collaborators << @user
+      expect(@wiki.collaborators).to eq [@user]
+      expect(Collaboration.first.collaborator).to eq @user
+      expect(Collaboration.first.wiki).to eq @wiki
+    end
   end
 end

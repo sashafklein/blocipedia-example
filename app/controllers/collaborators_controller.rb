@@ -6,8 +6,8 @@ class CollaboratorsController < ApplicationController
   before_action :block_non_paying
 
   def index
-    @collabs = @wiki.collaborators
-    @non_collabs = User.where.not(id: @collabs.pluck(:id))
+    @collabs = @wiki.collaborations
+    @non_collabs = User.where.not(id: @collabs.pluck(:user_id))
   end
 
   private

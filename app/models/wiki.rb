@@ -6,6 +6,10 @@ class Wiki < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  def public
+    !self.private
+  end
+
   def markdown_body
     renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
     renderer.render body

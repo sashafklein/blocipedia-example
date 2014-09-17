@@ -1,17 +1,19 @@
 !!!
 %html
-%head
-  %title BlocipediaExample
-  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-  = javascript_include_tag "application", "data-turbolinks-track" => true
-  = csrf_meta_tags
+  %head
+    %title BlocipediaExample
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
 
-%body
-  
-  = render 'layouts/header'
+  %body
+    .container
+      
+      = render 'layouts/header'
 
-  #flash
-    - flash.each do |key, value|
-      %div{ id: "flash_#{key}" }= value
-
-  = yield
+      #flash
+        - flash.each do |key, value|
+          .alert{ class: "alert-#{flash_term(key)}" }
+            %button.close{ type: 'button', data: { dismiss: 'alert' } } &times;
+            = value
+      = yield

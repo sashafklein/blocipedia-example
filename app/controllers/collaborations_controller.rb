@@ -1,6 +1,9 @@
 class CollaborationsController < ApplicationController
 
+  before_action :authenticate_user!
+
   before_action :load_wiki
+  before_action :authorize_current_user!
   before_action :load_user
   before_action :load_collab
 
@@ -32,6 +35,11 @@ class CollaborationsController < ApplicationController
     @wiki = Wiki.friendly.find(params[:wiki_id])
   end
 
+  def authorize_current_user!
+    unless current_user == @wiki.owner
+      permission_error
+    end
+  end
   def load_user
     @user = User.find(params[:user_id])
   end

@@ -2,7 +2,8 @@ class WikisController < ApplicationController
 
   before_action :authenticate_user!
   before_action :load_wiki, only: [:show, :edit, :update, :destroy]
-  before_action :block_non_owner, only: [:edit, :update, :destroy]
+  before_action :block_non_owner, only: [:destroy]
+  before_action :block_non_editor, only: [:edit, :update]
   before_action :block_private, only: [:show]
 
   def new
@@ -57,9 +58,14 @@ class WikisController < ApplicationController
   end
 
   def block_non_owner
-    unless @wiki.owner == current_user
-      flash[:error] = "You don't have permission to do that."
-      redirect_to root_path
+    unless current_user.owns? @wiki
+      permission_error
+    end
+  end
+
+  def block_non_editor
+    unless current_user.can_edit? @wiki
+      permission_error
     end
   end
 

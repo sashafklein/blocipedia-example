@@ -1,16 +1,17 @@
-.header
-  .left
-    %ul
+%ul.nav.nav-tabs
+  %li 
+    %h4 Blocipedia Example
+  - if current_user
+    %li= link_to "Your Wikis Index", owned_wikis_user_path(current_user)
+    - if current_user.paid?
       %li 
-        %h4 Blocipedia Example
-      - if current_user
-        %li= link_to "Your Wikis Index", owned_wikis_user_path(current_user)
-        - if !current_user.paid?
-          %li= link_to "Upgrade account", new_charge_path
-  .right
-    %ul
-      - if current_user
-        %li= link_to "Sign Out", destroy_user_session_path
-      - else
-        %li= link_to "Login", new_user_session_path
-        %li= link_to "Register", new_user_registration_path
+        %p Account Paid
+    - else
+      %li= link_to "Upgrade account", new_charge_path
+  .pull-right.user-info
+    - if current_user
+      %p= "Welcome #{current_user.email}"
+      %li= link_to "Sign Out", destroy_user_session_path, method: :delete
+    - else
+      %li= link_to "Login", new_user_session_path
+      %li= link_to "Register", new_user_registration_path
