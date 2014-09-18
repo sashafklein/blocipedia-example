@@ -1,36 +1,18 @@
-## Starter Kit for Blocipedia
+## Example Implemenation of Blocipedia
 
+This is an example implementation of the Blocipedia project assignment for [Bloc](https://www.bloc.io)'s Full Stack Web Development course. 
 
-### To Get Started
+It includes:
 
-- Clone the repo to your local environment (or Vagrant).
-- Do a Find and Replace for `BlocipediaExample` throughout the repo. Replace it with your (camel-cased) app name.
-- Bundle install (delete or comment HAML line first, if you'd prefer ERB).
-- Edit config/database.yml (replace app and user names with your own).
-- Create the relevant databases (`rake db:create`).
-- Update `.git/config`, so that the `url` line for your Github `remote` points to the right URL, ie: `url = https://github.com/username/my-blocipedia-app`. (You might have to directly open the hidden `.git` folder with Sublime).
-- Replace this Readme with a description of your app and its hosted location.
+- Controller and model specs
+- Stripe
+- EpicEditor
+- Redcarpet
+- FriendlyID
+- Devise
+- HAML
+- A Has Many Through relationship between Wikis, Users, and Collaborations that allows for ownership and collaboration on wikis.
 
+> This is not the only way to complete this project, and it only strictly fulfills the requirements.
 
-### Includes
-
-- PostgreSQL as database (locally and on production)
-- Sass
-- Basic Rails asset technologies (Coffeescript, jQuery, etc)
-- Debugging tools (Better Errors, Binding Pry)
-- Testing tools (RSpec, Factory Girl, Database Cleaner, Capybara)
-
-
-### Included tests
-
-- Model tests for User, Wiki, and Collaboration. (You have to create the models). The specs just test out the associations. Read through them to get a sense for how your associations might ideally work. Then try to get them to pass.
-
-
-### Pointers
-
-- Use the model specs as a guide to get your app's model relationships up and running.
-- Feel free to comment out particular tests to narrow down the scope of your TDD -- get them to pass one at a time, from the easiest to the hardest.
-- Also feel free to abandon the relationships as the specs define them and do your own work. The specs are just there to suggest an ideal solution. If they're more of an obstacle than a help, delete them.
-- Commit early, commit often. Branch early, branch often. Try to take out one task at a time, and carefully consider what each task involves before launching into it. 
-- Read through [our guide to Has Many Through relationships](https://www.bloc.io/resources/has-many-through) and the complete [Rails guide to Active Record associations](http://guides.rubyonrails.org/association_basics.html), so you know your tools for setting up these complex associations.
-- Some options for `has_many` and `belongs_to` that you may want to look into and use: `:source`, `:class_name`, `:foreign_key`, and `:through` (all described in the Rails Guide to associations.
+Check the app out [here](http://blocipedia-example.herokuapp.com/)
