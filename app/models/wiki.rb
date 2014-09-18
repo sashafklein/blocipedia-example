@@ -6,6 +6,8 @@ class Wiki < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, use: :slugged
 
+  validates :title, :body, presence: true
+
   def non_collaborators
     User.where.not(id: collaborators.pluck(:id).concat([owner_id]))
   end
