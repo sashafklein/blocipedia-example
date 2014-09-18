@@ -1,6 +1,7 @@
 = simple_form_for @wiki do |f|
-  = f.input :title
-  = f.input :body, as: :text
+  = f.input :title, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+  = f.input :body, as: :text, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control hide', id: 'body-textarea' }
+  #edit-wiki
   - if current_user.paid?
-    = f.input :private, as: :boolean
-  = f.button :submit
+    = f.input :private, as: :boolean, error_html: { class: 'alert alert-danger' }, wrapper_html: { class: 'form-group'}, input_html: { class: 'form-control'}
+  = f.button :submit, id: 'submit'
