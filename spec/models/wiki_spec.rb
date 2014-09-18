@@ -21,5 +21,14 @@ describe Wiki do
         expect(@wiki.collaborators).to eq [@collaborator]
       end
     end
+
+    describe "non_collaborators" do
+      
+      before { @other_user = create(:user) }
+
+      it "returns users who aren't collaborators or owners" do
+        expect(@wiki.non_collaborators).to eq([@other_user])
+      end
+    end
   end
 end

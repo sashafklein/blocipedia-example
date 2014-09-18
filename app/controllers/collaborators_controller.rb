@@ -7,7 +7,7 @@ class CollaboratorsController < ApplicationController
 
   def index
     @collabs = @wiki.collaborations
-    @non_collabs = User.where.not(id: @collabs.pluck(:user_id))
+    @non_collabs = @wiki.non_collaborators
   end
 
   private

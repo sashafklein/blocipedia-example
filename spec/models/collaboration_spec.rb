@@ -1,8 +1,6 @@
 require 'rails_helper'
 
 describe Collaboration do 
-
-  include Devise::TestHelpers
   
   describe "creation" do
 
